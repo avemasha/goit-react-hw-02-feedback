@@ -53,15 +53,15 @@ class App extends Component {
     return this.state.good + this.state.neutral + this.state.bad;
   };
   countPositiveFeedbackPercentage = () => {
-    const total = this.state.good + this.state.neutral + this.state.bad;
+    const total = this.countTotalFeedback();
     const positive = this.state.good * 100;
-    if (total === 0) {
-      return 0;
-    }
-    return Math.round(positive / total);
+    // if (total === 0) {
+    //   return 0;
+    // }
+    return total === 0 ? 0 : Math.round(positive / total);
   };
   render() {
-    const total = this.state.good + this.state.neutral + this.state.bad;
+    const total = this.countTotalFeedback();
 
     const btnNames = Object.keys(this.state);
     return (
