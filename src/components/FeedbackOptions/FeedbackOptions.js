@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+
 import React, {Component} from "react";
 
 import './FeedbackOptions.css'
@@ -8,7 +8,7 @@ class FeedbackOptions extends Component {
   static defaultProps = {
     options: [],
   };
-  
+
  render() {
   return (
     <div>
