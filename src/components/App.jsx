@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {FeedbackOptions} from "./buttons/FeedbackOptions";
+import FeedbackOptions from "./buttons/FeedbackOptions";
 
 import {Section} from "./section/Section";
 
@@ -13,25 +13,42 @@ class App extends Component {
     initialBad: 0,
   };
   state = {
-    good: this.props.initialGood,
-    neutral: this.props.initialNeutral,
-    bad: this.props.initialBad,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
-  StatisticGoodCounter = () => {
+  // StatisticGoodCounter = () => {
+   
+  // };
+  // StatisticNeutralCounter = () => {
+ 
+  // };
+  // StatisticBadCounter = () => {
+    // this.setState(prevState => ({
+    //   bad: (prevState.bad += 1),
+    // }));
+  // };
+
+  // onLeaveFeedback = (option) => {
+  //    this.setState(prevState => ({
+  //     {option}: (prevState.{option} += 1) }))
+    
+  
+
+  // }
+
+  onLeaveFeedback = e => {
+    const currentBtnValue = e.currentTarget.value;
     this.setState(prevState => ({
-      good: (prevState.good += 1),
+      ...prevState,
+      [currentBtnValue]: prevState[currentBtnValue] + 1,
     }));
   };
-  StatisticNeutralCounter = () => {
-    this.setState(prevState => ({
-      neutral: (prevState.neutral += 1),
-    }));
-  };
-  StatisticBadCounter = () => {
-    this.setState(prevState => ({
-      bad: (prevState.bad += 1),
-    }));
-  };
+
+
+  
+
+
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -46,6 +63,7 @@ class App extends Component {
   render() {
     const total = this.state.good + this.state.neutral + this.state.bad;
 
+    const btnNames = Object.keys(this.state);
     return (
       <div
         style={{
@@ -59,12 +77,8 @@ class App extends Component {
       >
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
-            onLeaveFeedback={[
-              this.StatisticGoodCounter,
-              this.StatisticNeutralCounter,
-              this.StatisticBadCounter,
-            ]}
+            options={btnNames}
+            onLeaveFeedback={this.onLeaveFeedback}
           ></FeedbackOptions>
         </Section>
 

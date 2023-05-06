@@ -1,17 +1,23 @@
 import PropTypes from 'prop-types';
-import React from "react";
+import React, {Component} from "react";
 
 import './FeedbackOptions.css'
 
-export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+class FeedbackOptions extends Component {
+
+  static defaultProps = {
+    options: [],
+  };
+ render() {
   return (
     <div>
-      {options.map(option => {
+      {this.props.options.map(option => {
         return (
           <button
             type="button"
-            onClick={chooseMethod(option, onLeaveFeedback)}
+            onClick={e => this.props.onLeaveFeedback(e)}
             key={option}
+            value={option}
           >
             {option}
           </button>
@@ -19,23 +25,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       })}{' '}
     </div>
   );
+    }
   };
 
 
-
-  function chooseMethod(option, onLeaveFeedback) {
-    if (option === 'good') {
-      return onLeaveFeedback[0];
-    }
-    if (option === 'neutral') {
-      return onLeaveFeedback[1];
-    }
-    if (option === 'bad') {
-      return onLeaveFeedback[2];
-    }
-  }
-
-  FeedbackOptions.propTypes = {
-    options: PropTypes.array.isRequired,
-   
-  }
+export default FeedbackOptions;
+  
