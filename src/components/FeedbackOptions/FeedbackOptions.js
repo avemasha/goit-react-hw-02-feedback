@@ -3,7 +3,7 @@ import React, {Component} from "react";
 
 import './FeedbackOptions.css'
 
-class FeedbackOptions extends Component {
+export class FeedbackOptions extends Component {
 
   static defaultProps = {
     options: [],
@@ -30,5 +30,5 @@ class FeedbackOptions extends Component {
   };
 
 
-export default FeedbackOptions;
+// export default FeedbackOptions;
   
