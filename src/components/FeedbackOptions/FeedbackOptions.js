@@ -5,13 +5,7 @@ import './FeedbackOptions.css'
 
 export const FeedbackOptions = ({options, onLeaveFeedback}) => {
 
-  // static defaultProps = {
-  //   options: [],
-  // };
 
-  // FeedbackOptions.defaultProps = {
-  //  options: [],
-  // }
   
   
   return (
@@ -34,5 +28,5 @@ export const FeedbackOptions = ({options, onLeaveFeedback}) => {
   ;
 
 
-// export default FeedbackOptions;
+
   
