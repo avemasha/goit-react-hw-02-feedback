@@ -19,7 +19,7 @@ export const Statistics = ({ state, total, feedback}) => {
       </p>
       <p>
         Positive feedback:
-        <span>{this.countPositiveFeedbackPercentage()}%</span>
+        <span>{feedback}%</span>
       </p>
   </div>
 

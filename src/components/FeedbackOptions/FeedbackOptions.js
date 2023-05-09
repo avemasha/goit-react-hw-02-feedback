@@ -1,22 +1,26 @@
 
-import React, {Component} from "react";
+import React from "react";
 
 import './FeedbackOptions.css'
 
-export class FeedbackOptions extends Component {
+export const FeedbackOptions = ({options, onLeaveFeedback}) => {
 
-  static defaultProps = {
-    options: [],
-  };
+  // static defaultProps = {
+  //   options: [],
+  // };
 
- render() {
+  // FeedbackOptions.defaultProps = {
+  //  options: [],
+  // }
+  
+  
   return (
     <div>
-      {this.props.options.map(option => {
+      {options.map(option => {
         return (
           <button
             type="button"
-            onClick={() => this.props.onLeaveFeedback(option)}
+            onClick={() => onLeaveFeedback(option)}
             key={option}
             value={option}
           >
@@ -27,7 +31,7 @@ export class FeedbackOptions extends Component {
     </div>
   );
     }
-  };
+  ;
 
 
 // export default FeedbackOptions;
