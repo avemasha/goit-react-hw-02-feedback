@@ -16,7 +16,7 @@ export class FeedbackOptions extends Component {
         return (
           <button
             type="button"
-            onClick={e => this.props.onLeaveFeedback(e)}
+            onClick={() => this.props.onLeaveFeedback(option)}
             key={option}
             value={option}
           >
